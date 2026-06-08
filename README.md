@@ -4,12 +4,9 @@ Homebrew tap for [FanzyZones](https://github.com/benwbooth/fanzyzones) — nativ
 window-zone snapping for macOS.
 
 ```sh
+brew tap benwbooth/fanzyzones
+brew trust benwbooth/fanzyzones   # newer Homebrew requires trusting third-party taps
 brew install --cask benwbooth/fanzyzones/fanzyzones
 ```
 
-Or:
-
-```sh
-brew tap benwbooth/fanzyzones
-brew install --cask fanzyzones
-```
+The cask is updated automatically by CI on each tagged release of the main repo.
