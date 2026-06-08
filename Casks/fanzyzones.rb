@@ -7,9 +7,11 @@ cask "fanzyzones" do
   desc "Native FancyZones-style window-zone snapping for macOS"
   homepage "https://github.com/benwbooth/fanzyzones"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "FanzyZones.app"
+
+  zap trash: "~/Library/Application Support/FanzyZones"
 
   caveats <<~EOS
     FanzyZones is signed but not notarized. On first launch, right-click the app
@@ -18,8 +20,4 @@ cask "fanzyzones" do
     It needs Accessibility permission to move windows:
       System Settings > Privacy & Security > Accessibility > enable FanzyZones.
   EOS
-
-  zap trash: [
-    "~/Library/Application Support/FanzyZones",
-  ]
 end
