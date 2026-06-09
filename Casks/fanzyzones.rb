@@ -11,13 +11,18 @@ cask "fanzyzones" do
 
   app "FanzyZones.app"
 
+  # App is signed but not notarized, so Gatekeeper quarantines it on every
+  # install/upgrade. Strip the quarantine attribute so it launches without the
+  # "Apple could not verify ... is free of malware" prompt.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/FanzyZones.app"]
+  end
+
   zap trash: "~/Library/Application Support/FanzyZones"
 
   caveats <<~EOS
-    FanzyZones is signed but not notarized. On first launch, right-click the app
-    and choose Open (or allow it in System Settings > Privacy & Security).
-
-    It needs Accessibility permission to move windows:
+    FanzyZones needs Accessibility permission to move windows:
       System Settings > Privacy & Security > Accessibility > enable FanzyZones.
   EOS
 end
