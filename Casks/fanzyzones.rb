@@ -1,6 +1,6 @@
 cask "fanzyzones" do
-  version "0.1.1"
-  sha256 "6a592f408fdc80d86b8e3df874de7b76232b3d245c063efd90e9c6fff241dada"
+  version "0.1.2"
+  sha256 "c412dff78376c88df557b3efe94c02d3c4572108efbd95355133e7844c12ee17"
 
   url "https://github.com/benwbooth/fanzyzones/releases/download/v#{version}/FanzyZones.dmg"
   name "FanzyZones"
